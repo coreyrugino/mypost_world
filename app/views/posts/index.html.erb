@@ -1,19 +1,27 @@
-<h1>Your Post</h1>
+<h1>Everyone's Posts</h1>
 
-
+<%= form_tag 'online' %>
 <% if @posts.any? %>
-
   <% @posts.each do |post| %>
-    <ul>
-      <li><%= post.body %></li>
+    <%= form_for post do |f| %>
+    <%= f.label :post %>:
+    <%= f.check_box :post %>
 
-      <hr />
-    </ul>
-  <% end %>
+    <br />
+
+
+
+
+
+    <% end %>
+
+<% end %>
+
+
 <% else %>
 <h3> No posts found </h3>
 <% end %>
-<p><%= link_to 'New Post', new_post_path %></p>
+<p><%= link_to 'Home', users_path %></p>
 
 
 <p>Find me in app/views/posts/index.html.erb</p>
